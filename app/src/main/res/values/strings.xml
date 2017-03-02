@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MinimalistRead</string>
+    <!--过渡绘制-->
+    <string name="block_canary_display_activity_label">Blocks</string>
+
+    <string name="crash_exit_sorry">抱歉,程序发生异常即将退出</string>
+</resources>

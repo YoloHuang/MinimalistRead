@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "com.wind.huangzhijian.minimalistread"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    //fragmentation
+    compile 'me.yokeyword:fragmentation:0.10.1'
+    // 如果想使用SwipeBack 滑动边缘退出Fragment/Activity功能，请再添加下面的库
+    compile 'me.yokeyword:fragmentation-swipeback:0.7.9'
+    //logger
+    compile 'com.orhanobut:logger:1.15'
+    //canary
+    debugCompile 'com.github.markzhai:blockcanary-android:1.4.1'
+    releaseCompile 'com.github.markzhai:blockcanary-no-op:1.4.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    compile files('libs/tbs_sdk_thirdapp_v3.0.0.1038_43000_sharewithdownload_obfs_20170110_144724.jar')
+
+    //di
+    compile 'com.google.dagger:dagger:2.0.2'
+    compile 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+}
