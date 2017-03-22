@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/drawer_type">
+
+        <menu>
+
+            <item android:id="@+id/drawer_zhihu"
+                android:title="@string/drawer_zhihu"
+                android:checkable="true"
+                android:checked="true"
+                android:icon="@mipmap/ic_drawer_zhihu"/>
+
+            <item android:id="@+id/drawer_gold"
+                android:title="@string/drawer_gold"
+                android:checkable="true"
+                android:icon="@mipmap/ic_drawer_gold"/>
+
+        </menu>
+    </item>
+
+    <item android:title="@string/drawer_group">
+
+        <menu>
+
+            <item android:id="@+id/drawer_like"
+                android:title="@string/drawer_like"
+                android:icon="@mipmap/ic_drawer_like"
+                android:checkable="true"/>
+
+            <item android:id="@+id/drawer_set"
+                android:title="@string/drawer_settings"
+                android:icon="@mipmap/ic_drawer_setting"
+                android:checkable="true"/>
+
+            <item android:id="@+id/drawer_about"
+                android:title="@string/drawer_about"
+                android:icon="@mipmap/ic_drawer_about"
+                android:checkable="true"/>
+
+        </menu>
+
+    </item>
+
+</menu>

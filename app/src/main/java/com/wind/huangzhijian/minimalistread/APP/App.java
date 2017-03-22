@@ -13,6 +13,11 @@ import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.sdk.QbSdk;
 import com.wind.huangzhijian.minimalistread.Component.AppBlockCanaryContext;
 import com.wind.huangzhijian.minimalistread.Component.CrashHandler;
+import com.wind.huangzhijian.minimalistread.di.component.AppComponent;
+import com.wind.huangzhijian.minimalistread.di.component.DaggerAppComponent;
+import com.wind.huangzhijian.minimalistread.di.module.AppModule;
+import com.wind.huangzhijian.minimalistread.di.module.HttpModule;
+import com.wind.huangzhijian.minimalistread.di.module.PageModule;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,6 +30,7 @@ public class App extends Application{
 
     private Set<Activity> activities;
     private static App instance;
+    private static AppComponent appComponent;
 
     public static int SCREEN_WIDTH=-1;
     public static int SCREEN_HEIGH=-1;
@@ -108,5 +114,14 @@ public class App extends Application{
         }
     }
 
-
+    public static AppComponent getAppComponent(){
+        if (appComponent == null){
+            appComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(instance))
+                    .httpModule(new HttpModule())
+                    .pageModule(new PageModule())
+                    .build();
+        }
+        return appComponent;
+    }
 }

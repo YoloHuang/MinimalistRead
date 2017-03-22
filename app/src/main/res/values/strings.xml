@@ -4,4 +4,26 @@
     <string name="block_canary_display_activity_label">Blocks</string>
 
     <string name="crash_exit_sorry">抱歉,程序发生异常即将退出</string>
+
+    <!--主题 -->
+    <string name="app_theme">一个精简阅读工具</string>
+
+    <!--分类 -->
+    <string name="drawer_type">分类</string>
+    <string name="drawer_zhihu">知乎日报</string>
+    <string name="drawer_gold">稀土掘金</string>
+    <string name="drawer_like">喜欢</string>
+    <string name="drawer_settings">设置</string>
+    <string name="drawer_about">关于</string>
+    <string name="drawer_group">选项</string>
+
+
+    <string name="detail_bottom_share">分享</string>
+    <string name="detail_bottom_like">点赞</string>
+    <string name="detail_bottom_commit">评论</string>
+    <string name="comment_expand">收起</string>
+
+    <string name="drawer_open">打开</string>
+    <string name="drawer_close">关闭</string>
+
 </resources>
