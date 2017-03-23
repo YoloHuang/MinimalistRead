@@ -12,6 +12,7 @@ import com.wind.huangzhijian.minimalistread.module.bean.ZhihuDetailBean;
 import com.wind.huangzhijian.minimalistread.ui.zhihu.fragment.DailyFragment;
 
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import rx.Observable;
 
@@ -31,7 +32,7 @@ public interface ZhihuApis {
     /**
      * get 最新日报
      */
-    @GET("news/latest")
+    @POST("news/latest")
     Observable<DailyListBean> getDailyList();
 
     /**

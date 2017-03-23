@@ -60,8 +60,17 @@ public class DailyListBean {
         private int type;
         private int id;
         private String title;
+        private String ga_prefix;
         private boolean readstate;
         private List<String> images;
+
+        public String getGa_prefix() {
+            return ga_prefix;
+        }
+
+        public void setGa_prefix(String ga_prefix) {
+            this.ga_prefix = ga_prefix;
+        }
 
         public int getType() {
             return type;
@@ -109,6 +118,15 @@ public class DailyListBean {
         private String image;
         private int id ;
         private int type;
+        private String ga_prefix;
+
+        public String getGa_prefix() {
+            return ga_prefix;
+        }
+
+        public void setGa_prefix(String ga_prefix) {
+            this.ga_prefix = ga_prefix;
+        }
 
         public String getTitle() {
             return title;

@@ -59,17 +59,6 @@ public class App extends Application{
         //初始化crashHandler
         CrashHandler.init(new CrashHandler(getApplicationContext()));
 
-        QbSdk.initX5Environment(getApplicationContext(), new QbSdk.PreInitCallback() {
-            @Override
-            public void onCoreInitFinished() {
-
-            }
-
-            @Override
-            public void onViewInitFinished(boolean b) {
-
-            }
-        });
     }
 
     public void addActivity(Activity act){

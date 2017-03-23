@@ -19,7 +19,7 @@ import butterknife.BindView;
  */
 public class ZhihuFragment extends SimpleFragment {
 
-    @BindView(R.id.tab_comment)
+    @BindView(R.id.tab_zhihu)
     TabLayout mTabLayout;
     @BindView(R.id.viewpager_zhihu)
     ViewPager mViewPager;

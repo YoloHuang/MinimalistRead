@@ -21,4 +21,6 @@ public class Constants {
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
 
     public static final String SP_AUTO_CACHE = "auto_cache";
+
+
 }

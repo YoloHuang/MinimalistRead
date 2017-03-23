@@ -10,6 +10,7 @@
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         >
 
         <LinearLayout
@@ -24,7 +25,7 @@
                 android:layout_height="wrap_content">
 
                 <include layout="@layout/view_toolbar"
-                    android:id="@+id/tool_bar"/>
+                    android:id="@+id/toolbar"/>
 
                 <com.miguelcatalan.materialsearchview.MaterialSearchView
                     android:id="@+id/view_search"
@@ -43,6 +44,7 @@
             android:layout_width="280dp"
             android:layout_height="match_parent"
             android:id="@+id/navigation"
+            android:layout_gravity="start"
             android:background="@color/drawer_item_bg_n"
             app:headerLayout="@layout/drawer_header"
             app:menu="@menu/drawer_menu"

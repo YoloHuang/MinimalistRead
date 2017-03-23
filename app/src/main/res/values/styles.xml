@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -18,6 +18,11 @@
 
     <style name="WelcomeTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/welcome_dw</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="MainTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/colorBackground</item>
         <item name="android:windowIsTranslucent">false</item>
     </style>
 

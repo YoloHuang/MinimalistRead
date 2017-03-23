@@ -41,7 +41,7 @@ public abstract class CommonSubscriber<T> extends Subscriber<T> {
         }else if (e instanceof HttpException){
             mView.showError("数据加载失败");
         }else {
-            mView.showError("未知错误~");
+            mView.showError("未知错误~"+e.toString());
         }
     }
 }

@@ -2,12 +2,15 @@ package com.wind.huangzhijian.minimalistread.ui.main.activity;
 
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SearchEvent;
 
@@ -52,14 +55,16 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        showFragment = Constants.TYPE_ZHIHU;
-        hideFragment = Constants.TYPE_ZHIHU;
-        showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
-        mNavigationView.getMenu().findItem(R.id.drawer_zhihu).setChecked(false);
-        mToolbar.setTitle(mNavigationView.getMenu().findItem(getCurrentItem(showFragment)).getTitle().toString());
-        hideFragment=showFragment;
+        if(savedInstanceState != null) {
+            showFragment = Constants.TYPE_ZHIHU;
+            hideFragment = Constants.TYPE_ZHIHU;
+            showHideFragment(getTargetFragment(showFragment), getTargetFragment(hideFragment));
+            mNavigationView.getMenu().findItem(R.id.drawer_zhihu).setChecked(false);
+            mToolbar.setTitle(mNavigationView.getMenu().findItem(getCurrentItem(showFragment)).getTitle().toString());
+            hideFragment = showFragment;
+        }
     }
 
     private SupportFragment getTargetFragment(int item){
@@ -133,10 +138,20 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        item.setVisible(false);
+        mSearchView.setMenuItem(item);
+        mSearchMenuItem = item;
+        return true;
+    }
+
     private void showExitDialog() {
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
         builder.setTitle("提示");
-        builder.setMessage("确定退出GeekNews吗");
+        builder.setMessage("确定退出minimalistRead吗");
         builder.setNegativeButton("取消", null);
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
