@@ -36,7 +36,6 @@ public class HotFragment extends BaseFragment<HotPresenter> implements HotContra
     @BindView(R.id.rv_content)
     RecyclerView rvHotContent;
 
-    HotAdapter mHotAdapter;
     List<HotListBean.RecentBean> mList;
     HotAdapter mAdapter;
 
@@ -70,6 +69,11 @@ public class HotFragment extends BaseFragment<HotPresenter> implements HotContra
 
     @Override
     public void useNightMode(boolean isNight) {
+
+    }
+
+    @Override
+    protected void initEventAndData() {
         mList = new ArrayList<>();
         ivProgress.start();
         mAdapter = new HotAdapter(mContext,mList);
@@ -96,11 +100,6 @@ public class HotFragment extends BaseFragment<HotPresenter> implements HotContra
                 mContext.startActivity(intent,options.toBundle());
             }
         });
-    }
-
-    @Override
-    protected void initEventAndData() {
-
     }
 
     @Override

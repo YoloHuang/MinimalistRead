@@ -53,34 +53,40 @@ public abstract class BaseFragment<T extends BasePresenter> extends SupportFragm
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(getLayoutId(), null);
-        initInject();
         return mView;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view,savedInstanceState);
+        initInject();
         mPresenter.attachView(this);
+        super.onViewCreated(view,savedInstanceState);
         mUnBinder = ButterKnife.bind(this, view);
-        if (savedInstanceState == null) {
-            if (!isHidden()) {
-                isInited = true;
-                initEventAndData();
-            }
-        } else {
-            if (!isSupportVisible()) {
-                isInited = true;
-                initEventAndData();
-            }
-        }
+//        if (savedInstanceState == null) {
+//            if (!isHidden()) {
+//                isInited = true;
+//                initEventAndData();
+//            }
+//        } else {
+//            if (isSupportVisible()) {
+//                isInited = true;
+//                initEventAndData();
+//            }
+//        }
+    }
+
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        initEventAndData();
     }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         if(mPresenter !=null){
             mPresenter.detachView();
         }
+        super.onDestroy();
     }
 
     @Override

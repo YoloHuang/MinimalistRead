@@ -67,7 +67,7 @@ public class HttpModule {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request request = chain.request();
-                if(SystemUtil.isNetworkConnected()){
+                if(!SystemUtil.isNetworkConnected()){
                     request = request.newBuilder()
                             .cacheControl(CacheControl.FORCE_CACHE)
                             .build();

@@ -3,6 +3,7 @@ package com.wind.huangzhijian.minimalistread.ui.zhihu.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.wind.huangzhijian.minimalistread.Component.ImageLoader;
 import com.wind.huangzhijian.minimalistread.R;
+import com.wind.huangzhijian.minimalistread.Util.LogUtil;
 import com.wind.huangzhijian.minimalistread.module.bean.DailyListBean;
 import com.wind.huangzhijian.minimalistread.ui.zhihu.activity.ZhihuDetailActivity;
 
@@ -35,7 +37,7 @@ public class TopPageAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+            return list.size();
     }
 
     @Override
@@ -63,5 +65,10 @@ public class TopPageAdapter extends PagerAdapter {
         });
         container.addView(view);
         return view;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView((View) object);
     }
 }

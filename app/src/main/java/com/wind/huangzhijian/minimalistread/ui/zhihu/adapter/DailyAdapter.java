@@ -5,6 +5,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.wind.huangzhijian.minimalistread.Component.ImageLoader;
 import com.wind.huangzhijian.minimalistread.R;
+import com.wind.huangzhijian.minimalistread.Util.LogUtil;
 import com.wind.huangzhijian.minimalistread.module.bean.DailyListBean;
 import com.wind.huangzhijian.minimalistread.module.bean.DailyListBeforeBean;
 import com.wind.huangzhijian.minimalistread.widget.SquareImageView;
@@ -49,6 +51,7 @@ public class DailyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     public DailyAdapter(Context mContext, List<DailyListBean.StoriesBean> mList) {
         this.mList = mList;
         this.mContext = mContext;
+        Log.w("DailyAdapter","mList"+mList);
         inflater = LayoutInflater.from(mContext);
     }
 
@@ -75,10 +78,12 @@ public class DailyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(viewType == ITEM_TYPE.ITEM_TOP.ordinal()) {
             mAdapter = new TopPageAdapter(mContext,mTopList);
+            Log.w("onCreateViewHolder","mTopList"+mTopList);
             return new TopViewHolder(inflater.inflate(R.layout.item_top, parent, false));
         } else if(viewType == ITEM_TYPE.ITEM_DATE.ordinal()) {
             return new DateViewHolder(inflater.inflate(R.layout.item_date, parent, false));
         }
+        Log.w("onCreateViewHolder","item_daily");
         return new ContentViewHolder(inflater.inflate(R.layout.item_daily, parent, false));
     }
 
@@ -91,6 +96,7 @@ public class DailyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             } else {
                 contentPosition = position - 2;
             }
+            Log.w("onBindViewHolder","mList"+mList);
             ((ContentViewHolder)holder).title.setText(mList.get(contentPosition).getTitle());
             if (mList.get(contentPosition).isReadstate()) {
                 ((ContentViewHolder)holder).title.setTextColor(ContextCompat.getColor(mContext,R.color.news_read));

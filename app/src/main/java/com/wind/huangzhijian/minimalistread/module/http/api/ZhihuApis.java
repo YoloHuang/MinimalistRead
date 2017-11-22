@@ -32,7 +32,7 @@ public interface ZhihuApis {
     /**
      * get 最新日报
      */
-    @POST("news/latest")
+    @GET("news/latest")
     Observable<DailyListBean> getDailyList();
 
     /**

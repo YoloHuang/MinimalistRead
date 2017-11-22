@@ -32,21 +32,22 @@ public class WelcomePresenter extends RxPresenter<WelcomeContract.View> implemen
 
     @Override
     public void getWelcomeData() {
-        Subscription rxSubscription = mRetrofitHelper.fetchWelcomeInfo(RES)
-                .compose(RxUtil.<WelcomeBean>rxSchedulerHelper())
-                .subscribe(new Action1<WelcomeBean>() {
-                    @Override
-                    public void call(WelcomeBean welcomeBean) {
-                        mView.showContent(welcomeBean);
-                        startCountDown();
-                    }
-                }, new Action1<Throwable>() {
-                    @Override
-                    public void call(Throwable throwable) {
-                        mView.JumpToMain();
-                    }
-                });
-        addSubscribe(rxSubscription);
+//        Subscription rxSubscription = mRetrofitHelper.fetchWelcomeInfo(RES)
+//                .compose(RxUtil.<WelcomeBean>rxSchedulerHelper())
+//                .subscribe(new Action1<WelcomeBean>() {
+//                    @Override
+//                    public void call(WelcomeBean welcomeBean) {
+//                        mView.showContent(welcomeBean);
+//                        startCountDown();
+//                    }
+//                }, new Action1<Throwable>() {
+//                    @Override
+//                    public void call(Throwable throwable) {
+//                        mView.JumpToMain();
+//                    }
+//                });
+//        addSubscribe(rxSubscription);
+        startCountDown();
     }
 
     private void startCountDown() {

@@ -30,7 +30,7 @@ public class DailyListBean {
      * title : 整点儿奥运 · 别走啊，我用锅铲跟你打，行吗？
      */
 
-    private List<TopStoriesBean> topStories;
+    private List<TopStoriesBean> top_stories;
 
     public String getDate() {
         return date;
@@ -41,11 +41,11 @@ public class DailyListBean {
     }
 
     public List<TopStoriesBean> getTopStories() {
-        return topStories;
+        return top_stories;
     }
 
-    public void setTopStories(List<TopStoriesBean> topStories) {
-        this.topStories = topStories;
+    public void setTopStories(List<TopStoriesBean> top_stories) {
+        this.top_stories = top_stories;
     }
 
     public List<StoriesBean> getStories() {

@@ -1,5 +1,7 @@
 package com.wind.huangzhijian.minimalistread.presenter;
 
+import android.util.Log;
+
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.wind.huangzhijian.minimalistread.Component.RxBus;
 import com.wind.huangzhijian.minimalistread.Util.DateUtil;
@@ -71,6 +73,7 @@ public class DailyPresenter extends RxPresenter<DailyContract.View> implements D
                     @Override
                     public Boolean call(String s) {
                         if(s.equals(DateUtil.getTomorrowDate())) {
+                            Log.w("registerEvent: ","getDailyData" );
                             getDailyData();
                             return false;
                         }

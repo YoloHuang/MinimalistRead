@@ -48,8 +48,8 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
     @Override
     public void showContent(WelcomeBean welcomeBean) {
         ImageLoader.load(this,welcomeBean.getImg(),welcome_mg);
-        welcome_mg.animate().scaleX(1.12f).scaleY(1.12f).setDuration(2000).setStartDelay(100).start();
-        welcome_text.setText(welcomeBean.getText());
+        //welcome_mg.animate().scaleX(1.12f).scaleY(1.12f).setDuration(2000).setStartDelay(100).start();
+        //welcome_text.setText(welcomeBean.getText());
     }
 
     @Override
